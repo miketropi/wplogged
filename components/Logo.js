@@ -1,5 +1,12 @@
+import styled from "styled-components";
+
+const BrandContainer = styled.div`
+  margin-right: 3em;
+  font-weight: bold;
+`
+
 export default () => {
-  return <div className="site-brand">
-    <a href="/">WP Logged</a>
-  </div>
+  return <BrandContainer>
+    <a href="/">{ '{WP Logged}' }</a>
+  </BrandContainer>
 }

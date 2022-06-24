@@ -5,6 +5,7 @@ body {
   font-family: var(--content-font);
   font-size: var(--font-size);
   color: var(--text-color);
+  line-height: 1.3em;
 }
 
 a {
@@ -14,4 +15,17 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  margin-top: 0;
+  margin-bottom: .8em;
+  line-height: 1.5em;
+}
+
+.site-container {
+  width: var(--content-width);
+  max-width: calc(100% - 46px);
+  margin: 0 auto;
 }

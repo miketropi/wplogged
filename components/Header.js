@@ -9,6 +9,8 @@ const HeaderSummaryContainer = styled.header`
   margin: 0 auto;
   display: flex;
   align-items: center;
+  padding: 1.5em 0;
+  font-weight: 500;
 `;
 
 export default () => {
