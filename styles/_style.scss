@@ -22,10 +22,39 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: .8em;
   line-height: 1.5em;
+  font-weight: bold;
+}
+
+.site-header {
+
+  &--sticky {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 99;
+  }
+}
+
+.site-footer {
+  background: black;
+  padding: 30px 0;
 }
 
 .site-container {
   width: var(--content-width);
   max-width: calc(100% - 46px);
   margin: 0 auto;
+}
+
+.content-container {
+  width: var(--content-width);
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.ss-title {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
 }

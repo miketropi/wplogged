@@ -21,9 +21,9 @@ const SearchContainer = styled.div`
 
 export default () => {
   return <SearchContainer>
-    <input className="search-input" type="search" placeholder="Type your keywords..."/>
+    <input className="search-input" type="search" placeholder="Tìm kiếm..."/>
     <span className="__icon">
-      <BiSearch />
+      <BiSearch /> 
     </span>
   </SearchContainer>
 }

@@ -49,7 +49,7 @@ const HeroSectionContainer = styled.div`
 export default ({ heading, subHeading, description, actions }) => {
   return <HeroSectionContainer>
     <div className="site-container">
-      <div class="hero-section__entry">
+      <div className="hero-section__entry">
         {
           heading != null && 
           <h2 className="heading">{ heading }</h2>
@@ -67,7 +67,7 @@ export default ({ heading, subHeading, description, actions }) => {
 
         {
           actions &&
-          <div class="actions">
+          <div className="actions">
             {
               actions.map(item => item)
             }

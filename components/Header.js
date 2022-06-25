@@ -5,7 +5,7 @@ import Nav from './Nav';
 import HeaderTools from './HeaderTools';
 
 const HeaderSummaryContainer = styled.header`
-  width: calc(100% - 48px);
+  width: var(--extra-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ const HeaderSummaryContainer = styled.header`
 `;
 
 export default () => {
-  return <header id="SiteHeader" className="site-header">
+  return <header id="SiteHeader" className="site-header site-header--sticky">
     <HeaderSummaryContainer className="site-header__inner">
       <Logo />
       <Nav />
