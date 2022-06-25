@@ -4,16 +4,17 @@ import Head from 'next/head';
 import HeroSection from '../components/HeroSection';
 import Posts from '../components/Posts';
 import Features from '../components/Features';
+import { getPosts } from '../libs/api';
 
 const FEATURES = [
   {
     title: 'Xây Dựng Cộng Đồng',
-    description: 'Nơi kết nỗi những con người cùng sống và làm việc với WordPress hằng ngày. 🫀',
+    description: 'Nơi kết nỗi những con người cùng sống và làm việc với WordPress hằng ngày. 👋',
     imageUrl: '',
   },
   {
     title: 'Cải Thiện Kỹ Năng',
-    description: 'Tại đây mình sẽ viết nhiều hơn code, hi vọng skill viết lách của mình sẽ được Upgrade. ✍️',
+    description: 'Tại đây mình sẽ viết nhiều hơn code, hi vọng skill viết lách của mình sẽ được Level Up. ✍️',
     imageUrl: '',
   },
   {
@@ -23,7 +24,7 @@ const FEATURES = [
   },
 ]
 
-export default function Home() {
+export default function Home({ postsConnection }) {
   return <Fragment> 
     <Head>
       <title>WP Logged | by Mike</title>
@@ -36,10 +37,21 @@ export default function Home() {
         actions={[
           <a href="#" className="btn btn-primary" key="letgo">Let's Gooo...</a>
         ]} />
-        <Posts />
+        <Posts 
+          title={ 'Posts 🥸' } 
+          posts={ postsConnection.edges } />
         <Features 
           title={ 'Tại Sao Nó Được Tạo Ra & Với Mục Đích Gì' } 
           features={ FEATURES } />
     </DefaultTemplate>
   </Fragment>
+}
+
+export async function getStaticProps() {
+  const { postsConnection } = await getPosts();
+  return {
+    props: {
+      postsConnection: { ...postsConnection }
+    },
+  };
 }

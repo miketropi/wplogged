@@ -9,8 +9,8 @@ export default function Contact() {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <DefaultTemplate>
-      <div className="content-container">
-        Contact...
+      <div className="content-container __has-spacing">
+        Coming soon...
       </div>
     </DefaultTemplate>
   </>

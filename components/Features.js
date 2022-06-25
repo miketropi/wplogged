@@ -2,7 +2,7 @@ import FeatureBox from './FeatureBox';
 import styled from 'styled-components';
 
 const FeafuresContainer = styled.div`
-  padding: 35px 0;
+  padding: 5em 0;
 
   .features-loop {
     display: flex;
@@ -24,7 +24,7 @@ export default ({ title, features }) => {
       <div className="features-inner">
         {
           title != '' &&
-          <h2 class="ss-title">{ title }</h2>
+          <h2 className="ss-title">{ title }</h2>
         }
         <div className="features-loop">
           {
