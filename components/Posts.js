@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { BsArrowUpRight } from 'react-icons/bs';
 
 const PostsContainer = styled.div`
@@ -15,7 +16,7 @@ const PostsContainer = styled.div`
       box-sizing: border-box;
       padding: 0 20px;
       margin-bottom: 40px;
-      width: calc(100% / 2);
+      width: calc(100% / 3);
 
       &__inner {
         border: solid 1px #ddd;
@@ -84,15 +85,17 @@ export default ({ title, posts }) => {
           {
             posts.length > 0 && 
             posts.map(item => {
-              const { id, title, excerpt, coverImage } = item.node;
+              const { id, title, excerpt, coverImage, slug } = item.node;
               return <article className="post-item" key={ id }>
                 <div className="post-item__inner">
                   {
                     coverImage && coverImage?.url &&
                     <div className="post-item__thumbnail">
-                      <a href="#">
-                        <img src={ coverImage.url } alt={ `#${ title }` } />
-                      </a>
+                      <Link href={ `/posts/${ slug }` }>
+                        <a>
+                          <img src={ coverImage.url } alt={ `#${ title }` } />
+                        </a>
+                      </Link>
                     </div>
                   }
                   <div className="post-item__entry">
@@ -102,7 +105,9 @@ export default ({ title, posts }) => {
                     </div> */}
                   </div>
                   <div className="post-item__actions">
-                    <a className="btn btn-primary p-readmore" href="#">Đọc thêm</a> 
+                    <Link href={ `/posts/${ slug }` }>
+                      <a className="btn btn-primary p-readmore">Đọc thêm</a> 
+                    </Link>
                   </div>
                 </div>
               </article>

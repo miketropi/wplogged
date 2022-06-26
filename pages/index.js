@@ -27,7 +27,7 @@ const FEATURES = [
 export default function Home({ postsConnection }) {
   return <Fragment> 
     <Head>
-      <title>WP Logged | by Mike</title>
+      <title>WP Logged | Home Page</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <DefaultTemplate>
