@@ -5,7 +5,7 @@ body {
   font-family: var(--content-font);
   font-size: var(--font-size);
   color: var(--text-color);
-  line-height: 1.3em;
+  line-height: 1.5em;
 }
 
 a {
@@ -66,4 +66,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .__has-spacing {
   padding: 4em 0;
+}
+
+.single-post-template {
+  background-color: #f9f9f9;
 }

@@ -7,11 +7,11 @@ const FeafuresContainer = styled.div`
   .features-loop {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -25px;
+    margin: 0 -15px;
 
     > * {
       box-sizing: border-box;
-      padding: 0 25px;
+      padding: 0 15px;
       margin-bottom: 30px;
       width: calc(100% / 3);
     }

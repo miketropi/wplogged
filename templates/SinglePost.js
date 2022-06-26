@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from "../components/footer";
+import ContactImageBox from '../components/ContactImageBox';
 
 const SummaryContainer = styled.div`
   display: flex;
@@ -9,16 +10,21 @@ const SummaryContainer = styled.div`
   justify-content: space-between;
 
   .content-entry {
-    width: 60%;
+    width: 65%;
   }
 
   .sidebar-container {
     width: 30%;
+
+    &__inner {
+      position: sticky;
+      top: 120px;
+    }
   }
 `;
 
 export default ({ children }) => {
-  return <div id="Page">
+  return <div id="Page" className="single-post-template">
     <Header />
     <main id="Main" className="site-main">
       <div className="content-container __has-spacing">
@@ -27,7 +33,9 @@ export default ({ children }) => {
             { children }
           </div>
           <div className="sidebar-container">
-            Sidebar...!
+            <div className="sidebar-container__inner">
+              <ContactImageBox />
+            </div>
           </div>
         </SummaryContainer>
       </div>
