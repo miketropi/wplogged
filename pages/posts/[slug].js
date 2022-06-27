@@ -67,6 +67,7 @@ export default ({ post }) => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta property="og:title" content={ post.title } key="title" />
     </Head>
+    
     <SinglePostTemplate>
       <article className="post">
         <PostInnerContainer>
@@ -74,7 +75,7 @@ export default ({ post }) => {
             <img className="post-thumbnail" src={ post.coverImage.url } alt={ `#${ post.title }` } />
             <h2 className="post-title">{ post.title }</h2>
             <PostMetaContainer>
-              <div class="post-author"> 
+              <div className="post-author"> 
                 <img src={ post.author.picture.url } alt={ `#${ post.author.name }` } /> 
                 { post.author.name }
               </div>

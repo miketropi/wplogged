@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection';
 import Posts from '../components/Posts';
 import Features from '../components/Features';
 import { getPosts } from '../libs/api';
+import Link from 'next/link';
 
 const FEATURES = [
   {
@@ -35,7 +36,9 @@ export default function Home({ postsConnection }) {
         heading={ 'Nếu Bạn Là WordPress Developer Chắc Bạn Sẽ Thích Nơi Này, Welcome! 🎉' } 
         subHeading={ '43% Website đang sử dụng WordPress, vậy nó có gì hay ho...' } 
         actions={[
-          <a href="#" className="btn btn-primary" key="letgo">Let's Gooo...</a>
+          <Link href="/" key="letgo">
+            <a className="btn btn-primary">Let's Gooo...</a>
+          </Link>
         ]} />
         <Posts 
           title={ 'Posts 🥸' } 
