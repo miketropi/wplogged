@@ -5,6 +5,9 @@ import SinglePostTemplate from '../../templates/SinglePost';
 import { allPosts, getPost } from '../../libs/api';
 import { CgHashtag } from 'react-icons/cg';
 
+const SinglePostContainer = styled.div`
+`;
+
 const PostInnerContainer = styled.div`
 `;
 
@@ -22,6 +25,18 @@ const PostHeader = styled.div`
   .post-title {
     margin-bottom: 10px;
     font-size: 1.5em; 
+  }
+
+  .post-excerpt {
+    padding: 2px 18px;
+    border: solid 1px #eee;
+    margin-top: 20px;
+    font-size: 14px;
+    background: #eee;
+    color: black;
+    display: inline-block;
+    border-radius: 3px;
+    line-height: normal;
   }
 `
 
@@ -55,49 +70,57 @@ const PostMetaContainer = styled.div`
     span {
       border-bottom: solid 1px black;
       padding: 4px 0;
-      margin-right: 4px;
+      margin-right: 8px;
     }
   }
 `;
 
 export default ({ post }) => {
-  return <>
+  const { title, excerpt, author, content, tags } = post;
+  return <SinglePostContainer>
     <Head>
       <title>{ post.title } | WP Logged</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta property="og:title" content={ post.title } key="title" />
+      <meta property="og:title" content={ title } key="title" />
     </Head>
-    
+
     <SinglePostTemplate>
       <article className="post">
         <PostInnerContainer>
           <PostHeader>
-            <img className="post-thumbnail" src={ post.coverImage.url } alt={ `#${ post.title }` } />
-            <h2 className="post-title">{ post.title }</h2>
+            <img className="post-thumbnail" src={ post.coverImage.url } alt={ `#${ title }` } />
+            <h2 className="post-title">{ title }</h2>
             <PostMetaContainer>
               <div className="post-author"> 
-                <img src={ post.author.picture.url } alt={ `#${ post.author.name }` } /> 
-                { post.author.name }
+                <img src={ post.author.picture.url } alt={ `#${ author.name }` } /> 
+                { author.name }
               </div>
               {
-                post.tags.length > 0 &&
+                tags.length > 0 &&
                 <div className="post-tags"> 
                   {
-                    post.tags.map((tag, _index) => {
+                    tags.map((tag, _index) => {
                       return <span key={ _index }>{ tag }</span>
                     })
                   } 
                 </div>
               }
             </PostMetaContainer>
+            
+            {
+              excerpt != '' && 
+              <div className="post-excerpt">
+                <p>{ excerpt }</p>
+              </div>
+            }
           </PostHeader>
           <div className="post-content">
-            <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
+            <div dangerouslySetInnerHTML={{ __html: content.html }}></div>
           </div>
         </PostInnerContainer>
       </article>
     </SinglePostTemplate>
-  </>
+  </SinglePostContainer>
 }
 
 export const getStaticProps = async (context) => {

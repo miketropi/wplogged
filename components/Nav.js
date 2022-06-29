@@ -39,14 +39,14 @@ const MENU_ITEMS =  [
     name: 'Home',
     url: '/'
   },
-  {
-    name: 'About Us',
-    url: '/about',
-  },
-  {
-    name: 'Contact',
-    url: '/contact',
-  }
+  // {
+  //   name: 'About Us',
+  //   url: '/about',
+  // },
+  // {
+  //   name: 'Contact',
+  //   url: '/contact',
+  // }
 ]
 
 export default () => {

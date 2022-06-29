@@ -21,6 +21,21 @@ const SummaryContainer = styled.div`
       top: 120px;
     }
   }
+
+  @media(max-width: 768px) { 
+
+    .content-entry {
+      width: 100%;
+      margin-bottom: 2em;
+    }
+  }
+
+  @media(max-width: 425px) { 
+
+    .sidebar-container {
+      width: 100%;
+    }
+  }
 `;
 
 export default ({ children }) => {

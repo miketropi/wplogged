@@ -12,14 +12,27 @@ const PostsContainer = styled.div`
     flex-wrap: wrap;
     margin: 0 -20px;
 
+    @media(max-width: 768px) {
+      margin: 0 -10px;
+    }
+
     .post-item {
       box-sizing: border-box;
       padding: 0 20px;
       margin-bottom: 40px;
       width: calc(100% / 3);
 
+      @media(max-width: 768px) {
+        width: calc(100% / 2);
+        padding: 0 10px;
+      }
+
+      @media(max-width: 425px) {
+        width: calc(100% / 1);
+      }
+
       &__inner {
-        border: solid 1px #ddd;
+        border: solid 1px #ddd; 
         position: relative;
         height: 100%;
         border-radius: 3px;
@@ -48,6 +61,10 @@ const PostsContainer = styled.div`
         .p-title {
           width: 100%;
           font-size: 1.2em;
+
+          @media(max-width: 425px) {
+            font-size: 16px;
+          }
         }
 
         .p-description {
@@ -99,7 +116,11 @@ export default ({ title, posts }) => {
                     </div>
                   }
                   <div className="post-item__entry">
-                    <h4 className="p-title">{ title } <BsArrowUpRight /></h4>
+                    <h4 className="p-title">
+                      <Link href={ `/posts/${ slug }` }>
+                        <a>{ title } <BsArrowUpRight /></a>
+                      </Link>
+                    </h4>
                     {/* <div className="p-description">
                       <p>{ excerpt }</p>
                     </div> */}

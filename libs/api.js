@@ -34,7 +34,7 @@ export const getPosts = async () => {
           }
           excerpt
           coverImage {
-            url
+            url(transformation: {image: {resize: {width: 460}}})
           }
           date
         }
@@ -51,7 +51,7 @@ export const getPost = (slug) => {
         html
       }
       coverImage {
-        url
+        url(transformation: {image: {resize: {width: 660}}})
       }
       date
       excerpt

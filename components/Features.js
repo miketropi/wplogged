@@ -9,11 +9,21 @@ const FeafuresContainer = styled.div`
     flex-wrap: wrap;
     margin: 0 -15px;
 
+    @media(max-width: 768px) { 
+      width: 420px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
     > * {
       box-sizing: border-box;
       padding: 0 15px;
       margin-bottom: 30px;
       width: calc(100% / 3);
+
+      @media(max-width: 768px) {
+        width: calc(100% / 1);
+      }
     }
   }
 `;

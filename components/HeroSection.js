@@ -24,12 +24,17 @@ const HeroSectionContainer = styled.div`
     position: relative;
     z-index: 3;
     width: 500px;
+    max-width: 100%;
     margin: 0 auto;
     text-align: center;
 
     .heading {
       font-size: 2em;
       line-height: 1.3em;
+
+      @media(max-width: 768px) {
+        font-size: 6vw;
+      }
     }
 
     .sub-heading {
