@@ -19,7 +19,7 @@ const SearchContainer = styled.div`
   }
 `;
 
-export default () => {
+export default function Search() {
   return <SearchContainer>
     <input className="search-input" type="search" placeholder="Tìm kiếm..."/>
     <span className="__icon">

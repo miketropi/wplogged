@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BsArrowUpRight } from 'react-icons/bs';
 
 const PostsContainer = styled.div`
@@ -90,7 +91,7 @@ const PostsContainer = styled.div`
   }
 `;
 
-export default ({ title, posts }) => {
+export default function Posts({ title, posts }) {
   return <PostsContainer>
     <div className="content-container">
       <div className="posts-inner">
@@ -110,7 +111,12 @@ export default ({ title, posts }) => {
                     <div className="post-item__thumbnail">
                       <Link href={ `/posts/${ slug }` }>
                         <a>
-                          <img src={ coverImage.url } alt={ `#${ title }` } />
+                          <Image 
+                            src={ coverImage.url } 
+                            alt={ `#${ title }` } 
+                            layout='responsive'
+                            width={ coverImage.width }
+                            height={ coverImage.height } />
                         </a>
                       </Link>
                     </div>

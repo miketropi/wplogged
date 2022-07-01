@@ -49,7 +49,7 @@ const MENU_ITEMS =  [
   // }
 ]
 
-export default () => {
+export default function Nav() {
   const router = useRouter();
 
   return <NavContainer>

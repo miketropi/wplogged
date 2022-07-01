@@ -35,6 +35,8 @@ export const getPosts = async () => {
           excerpt
           coverImage {
             url(transformation: {image: {resize: {width: 460}}})
+            width
+            height
           }
           date
         }
@@ -52,6 +54,8 @@ export const getPost = (slug) => {
       }
       coverImage {
         url(transformation: {image: {resize: {width: 660}}})
+        width
+        height
       }
       date
       excerpt
@@ -66,12 +70,15 @@ export const getPost = (slug) => {
       author {
         name
         picture {
-          url
+          url(transformation: {image: {resize: {width: 100}}})
           id
+          height
+          width
         }
       }
     }
-  }`, {
+  }
+  `, {
     slug
   });
 }

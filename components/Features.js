@@ -28,7 +28,7 @@ const FeafuresContainer = styled.div`
   }
 `;
 
-export default ({ title, features }) => {
+export default function Feafures({ title, features }) {
   return <FeafuresContainer>
     <div className="content-container">
       <div className="features-inner">

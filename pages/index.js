@@ -37,7 +37,7 @@ export default function Home({ postsConnection }) {
         subHeading={ '43% Website đang sử dụng WordPress, vậy nó có gì hay ho...' } 
         actions={[
           <Link href="/" key="letgo">
-            <a className="btn btn-primary">Let's Gooo...</a>
+            <a className="btn btn-primary">Let&#39;s Gooo...</a>
           </Link>
         ]} />
         <Posts 

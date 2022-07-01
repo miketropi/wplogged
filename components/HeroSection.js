@@ -51,7 +51,7 @@ const HeroSectionContainer = styled.div`
   }
 `
 
-export default ({ heading, subHeading, description, actions }) => {
+export default function HeroSection({ heading, subHeading, description, actions }) {
   return <HeroSectionContainer>
     <div className="site-container">
       <div className="hero-section__entry">

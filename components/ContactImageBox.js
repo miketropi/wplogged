@@ -22,7 +22,7 @@ const ContactImaegBoxContainer = styled.div`
   }
 `;
 
-export default () => {
+export default function ContactImageBox() {
   const imageUrl = `https://images.unsplash.com/photo-1466096115517-bceecbfb6fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80`;
 
   return <ContactImaegBoxContainer>

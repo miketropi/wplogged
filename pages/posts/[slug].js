@@ -1,9 +1,9 @@
-import React, { Fragment }from 'react';
+import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import SinglePostTemplate from '../../templates/SinglePost';
 import { allPosts, getPost } from '../../libs/api';
-import { CgHashtag } from 'react-icons/cg';
+import Image from 'next/image';
 
 const SinglePostContainer = styled.div`
 `;
@@ -20,6 +20,10 @@ const PostHeader = styled.div`
     width: 100%;
     margin-bottom: 1.5em;
     border-radius: 3px;
+
+    img {
+      border-radius: 3px;
+    }
   }
 
   .post-title {
@@ -58,10 +62,12 @@ const PostMetaContainer = styled.div`
     border: solid 1px #ddd;
     border-radius: 30px;
 
-    img {
-      width: 28px;
+    .author-thumbnail {
       border-radius: 20px;
-      margin-right: 6px;
+    }
+
+    .author-name {
+      margin-left: 6px;
     }
   }
 
@@ -75,7 +81,7 @@ const PostMetaContainer = styled.div`
   }
 `;
 
-export default ({ post }) => {
+export default function SinglePost({ post }) {
   const { title, excerpt, author, content, tags } = post;
   return <SinglePostContainer>
     <Head>
@@ -88,12 +94,25 @@ export default ({ post }) => {
       <article className="post">
         <PostInnerContainer>
           <PostHeader>
-            <img className="post-thumbnail" src={ post.coverImage.url } alt={ `#${ title }` } />
+            <div className="post-thumbnail">
+              <Image 
+                src={ post.coverImage.url } 
+                alt={ `#${ title }` }
+                layout='responsive'
+                width={ post.coverImage.width } 
+                height={ post.coverImage.height }/>
+            </div>
             <h2 className="post-title">{ title }</h2>
             <PostMetaContainer>
               <div className="post-author"> 
-                <img src={ post.author.picture.url } alt={ `#${ author.name }` } /> 
-                { author.name }
+                <Image 
+                  className="author-thumbnail" 
+                  src={ author.picture.url } 
+                  alt={ `#${ author.name }` }
+                  layout='intrinsic'
+                  width={ 28 }
+                  height={ 28 } /> 
+                <span className="author-name">{ author.name }</span>
               </div>
               {
                 tags.length > 0 &&

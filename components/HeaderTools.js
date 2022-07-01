@@ -16,7 +16,7 @@ const HeaderToolContainer = styled.div`
   }
 `
 
-export default () => {
+export default function HeaderTools() {
   return <HeaderToolContainer>
     <ul>
       <li className="header-tools__search header-tools__item">

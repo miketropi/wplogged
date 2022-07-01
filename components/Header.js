@@ -13,7 +13,7 @@ const HeaderSummaryContainer = styled.header`
   font-weight: 500;
 `;
 
-export default () => {
+export default function Header() {
   return <header id="SiteHeader" className="site-header site-header--sticky">
     <HeaderSummaryContainer className="site-header__inner">
       <Logo />

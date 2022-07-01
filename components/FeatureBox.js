@@ -16,13 +16,9 @@ const FeafureBoxContainer = styled.div`
   }
 `;
 
-export default ({ title, description, imageUrl }) => {
+export default function FeafureBox({ title, description, imageUrl }) {
   return <FeafureBoxContainer>
     <div className="feature-box-inner">
-      { 
-        imageUrl != '' && 
-        <img className="f-thumbnail" src={ imageUrl } alt={ `#${ title }` } /> 
-      }
       <h4 className='f-title'>{ title }</h4>
       <div className="f-description">{ description }</div>
     </div>
