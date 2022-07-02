@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
-import Footer from "../components/footer";
 import ContactImageBox from '../components/ContactImageBox';
 
 const SummaryContainer = styled.div`
@@ -55,6 +54,5 @@ export default ({ children }) => {
         </SummaryContainer>
       </div>
     </main>
-    <Footer />
   </div>
 }

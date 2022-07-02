@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React from 'react';
 import Logo from './Logo';
 import styled from 'styled-components';
 
@@ -9,9 +9,9 @@ const FooterInnerContainer = styled.div`
 `;
 
 export default function Footer() {
-  return <footer id="SiteFooter" className="site-footer"> 
+  return <div id="SiteFooter" className="site-footer"> 
     <FooterInnerContainer>
-      <Logo />
+      <Logo /> 
     </FooterInnerContainer>  
-  </footer>
+  </div>
 } 
