@@ -8,7 +8,7 @@ const FooterInnerContainer = styled.div`
   color: white;
 `;
 
-export default () => {
+export default function Footer() {
   return <div id="SiteFooter" className="site-footer"> 
     <FooterInnerContainer>
       <Logo /> 
