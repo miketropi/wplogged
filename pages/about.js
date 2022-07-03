@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
-import DefaultTemplate from '../templates/default';
+import DefaultTemplate from '../templates/Default';
 
 export default function About() {
   return <>

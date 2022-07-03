@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import DefaultTemplate from '../templates/default';
+import DefaultTemplate from '../templates/Default';
 import Head from 'next/head';
 import HeroSection from '../components/HeroSection';
 import Posts from '../components/Posts';

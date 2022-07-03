@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import ContactImageBox from '../components/ContactImageBox';
+import Footer from '../components/Footer';
 
 const SummaryContainer = styled.div`
   display: flex;
@@ -54,5 +55,6 @@ export default ({ children }) => {
         </SummaryContainer>
       </div>
     </main>
+    <Footer />
   </div>
 }
