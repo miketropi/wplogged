@@ -38,7 +38,7 @@ const SummaryContainer = styled.div`
   }
 `;
 
-export default ({ children }) => {
+export default function SinglePostTemplate({ children }) {
   return <div id="Page" className="single-post-template">
     <Header />
     <main id="Main" className="site-main">
