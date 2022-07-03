@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import SinglePostTemplate from '../../templates/SinglePost';
+import SinglePostTemplate from '../../templates/SinglePostTemplate';
 import { allPosts, getPost } from '../../libs/api';
 import Image from 'next/image';
 
 const SinglePostContainer = styled.div`
 `;
 
-const PostInnerContainer = styled.div`
+const PostInnerContainer = styled.div` 
 `;
 
 const PostHeader = styled.div`
