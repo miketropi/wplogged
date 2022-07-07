@@ -7,7 +7,7 @@ const _request = async (graphql, variables = {}) => {
 
 export const getPosts = async () => {
   return _request(gql`query Posts {
-    postsConnection(skip: 0) {
+    postsConnection(skip: 0, orderBy: publishedAt_DESC) {
       pageInfo {
         pageSize
         hasNextPage
@@ -34,7 +34,7 @@ export const getPosts = async () => {
           }
           excerpt
           coverImage {
-            url(transformation: {image: {resize: {width: 460}}})
+            url(transformation: {image: {resize: {width: 460, height: 259, fit: crop}}})
             width
             height
           }
@@ -53,7 +53,7 @@ export const getPost = (slug) => {
         html
       }
       coverImage {
-        url(transformation: {image: {resize: {width: 660}}})
+        url(transformation: {image: {resize: {width: 460, height: 259, fit: crop}}})
         width
         height
       }

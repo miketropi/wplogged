@@ -13,6 +13,18 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 1.5em 0;
+}
+
+blockquote {
+  border-left: solid 2px black;
+  margin: 0;
+  padding: 2em;
+  font-style: italic;
+  background: #f0f0f0;
+}
+
 * {
   box-sizing: border-box;
 }

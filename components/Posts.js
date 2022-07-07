@@ -115,8 +115,8 @@ export default function Posts({ title, posts }) {
                             src={ coverImage.url } 
                             alt={ `#${ title }` } 
                             layout='responsive'
-                            width={ coverImage.width }
-                            height={ coverImage.height } />
+                            width={ 460 }
+                            height={ 259 } />
                         </a>
                       </Link>
                     </div>

@@ -9,6 +9,14 @@ const SinglePostContainer = styled.div`
 `;
 
 const PostInnerContainer = styled.div` 
+
+  .post-content {
+
+    h4 {
+      font-size: 1.5em;
+      margin: 1.5em 0;
+    }
+  }
 `;
 
 const PostHeader = styled.div`
@@ -35,12 +43,10 @@ const PostHeader = styled.div`
     padding: 2px 18px;
     border: solid 1px #eee;
     margin-top: 20px;
-    font-size: 14px;
     background: #eee;
     color: black;
     display: inline-block;
     border-radius: 3px;
-    line-height: normal;
   }
 `
 
@@ -99,8 +105,8 @@ export default function SinglePost({ post }) {
                 src={ post.coverImage.url } 
                 alt={ `#${ title }` }
                 layout='responsive'
-                width={ post.coverImage.width } 
-                height={ post.coverImage.height }/>
+                width={ 460 } 
+                height={ 259 }/>
             </div>
             <h2 className="post-title">{ title }</h2>
             <PostMetaContainer>
