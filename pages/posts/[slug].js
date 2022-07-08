@@ -16,6 +16,15 @@ const PostInnerContainer = styled.div`
       font-size: 1.5em;
       margin: 1.5em 0;
     }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      border-bottom: solid 1px;
+    }
   }
 `;
 
