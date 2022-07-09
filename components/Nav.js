@@ -1,16 +1,21 @@
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import styled from 'styled-components';
+import { useAppContext } from '../context/state';
 
 const NavContainer = styled.div`
   margin-left: auto;
 
   .menu {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     margin: 0;
     padding: 0;
+
+    &.__style-horizontal {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
     .menu-item {
       list-style: none;
@@ -22,6 +27,7 @@ const NavContainer = styled.div`
       > a {
         border-bottom: solid 2px transparent;
         padding: 3px 0;
+        font-size: 14px;
       }
 
       &.is-active {
@@ -31,31 +37,43 @@ const NavContainer = styled.div`
         }
       }
     }
+
+    &.__style-vertical {
+
+      .menu-item {
+        margin: 0;
+
+        a {
+          display: block;
+          width: 100%;
+          border-color: black;
+          padding: 10px 0;
+          opacity: .3;
+        }
+
+        &.is-active {
+
+          > a {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 `;
 
-const MENU_ITEMS =  [
-  {
-    name: 'Home',
-    url: '/'
-  },
-  // {
-  //   name: 'About Us',
-  //   url: '/about',
-  // },
-  // {
-  //   name: 'Contact',
-  //   url: '/contact',
-  // }
-]
-
-export default function Nav() {
+export default function Nav({ menuStyle }) {
+  const { menuItems, onChangeMenuMenuStatus } = useAppContext();
   const router = useRouter();
 
+  useEffect(() => {
+    onChangeMenuMenuStatus(false);
+  }, [router.query.slug])
+
   return <NavContainer>
-    <ul className="site-nav__inner menu">
+    <ul className={ [`site-nav__inner menu`, `__style-${ menuStyle }`].join(' ')  }>
       {
-        MENU_ITEMS.map(menu => {
+        [...menuItems].map(menu => {
           return <li 
             className={ ["menu-item", router.pathname == menu.url ? "is-active" : ""].join(' ') } 
             key={ menu.name }>
