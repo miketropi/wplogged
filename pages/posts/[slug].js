@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import SinglePostTemplate from '../../templates/SinglePostTemplate';
@@ -98,9 +98,15 @@ const PostMetaContainer = styled.div`
 
 export default function SinglePost({ post }) {
   const { title, excerpt, author, content, tags } = post;
+  const [pageTitle, setPageTitle] = useState('');
+
+  useEffect(() => {
+    setPageTitle(`${ post.title } | WP Logged`)
+  }, [post]);
+
   return <SinglePostContainer>
     <Head>
-      <title>{ post.title } | WP Logged</title>
+      <title>{ pageTitle }</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta property="og:title" content={ title } key="title" />
     </Head>

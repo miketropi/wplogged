@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 export default function useResponsive() {
@@ -8,9 +8,13 @@ export default function useResponsive() {
     maxWidth: 500
   });
 
-  useLayoutEffect(() => {
-    if (typeof window !== 'undefined') setIsClient(true);
-  }, []);
+  // useLayoutEffect(() => {
+  //   if (typeof window !== 'undefined') setIsClient(true);
+  // }, []);
+
+  useEffect(() => {
+    setIsClient(process.browser)
+  })
 
   return {
     isMobile: isClient ? isMobile : false,
