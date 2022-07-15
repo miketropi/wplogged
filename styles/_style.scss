@@ -22,7 +22,17 @@ blockquote {
   margin: 0;
   padding: 2em;
   font-style: italic;
-  background: #f0f0f0;
+  background: #eee;
+  margin: 1.5em 0;
+}
+
+code {
+  padding: 20px;
+  background: #eee;
+  display: block;
+  border-radius: 4px;
+  border: solid 1px #ddd;
+  margin: 1.5em 0;
 }
 
 * {
