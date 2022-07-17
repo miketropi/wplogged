@@ -28,6 +28,7 @@ const AppProvider = ({ children }) => {
       // }
     ],
     isMobile: isClient ? isMobile : false,
+    isClient,
     menuMobiStatus, onChangeMenuMenuStatus,
   };
 

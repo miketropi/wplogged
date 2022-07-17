@@ -4,8 +4,35 @@ import styled from 'styled-components';
 import SinglePostTemplate from '../../templates/SinglePostTemplate';
 import { allPosts, getPost } from '../../libs/api';
 import Image from 'next/image';
+import { FacebookProvider, Comments } from 'react-facebook';
+import { useRouter } from 'next/router';
+import { useAppContext } from '../../context/state';
 
 const SinglePostContainer = styled.div`
+
+  .button-show-comment-wrap {
+    display: flex;
+    align-items: center;
+
+    &::after,
+    &::before {
+      content: "";
+      border-bottom: solid 1px #ddd;
+      width: 50%;
+    }
+
+    .btn-line-style {
+      border: solid 1px #ddd;
+      padding: 10px 30px;
+      color: black;
+      background: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+  }
 `;
 
 const PostInnerContainer = styled.div` 
@@ -96,12 +123,28 @@ const PostMetaContainer = styled.div`
   }
 `;
 
+const CommentsFB = styled.div`
+  margin-top: 1em;
+  padding: 1.5em;
+  background: white;
+  box-shadow: 0px 0px 3px 0 rgb(1 1 1 / 10%);
+  border-radius: 4px;
+
+  .comments__title {
+    border-bottom: solid 1px #eee;
+    padding-bottom: 1em;
+  }
+`;
+
 export default function SinglePost({ post }) {
+  const { isClient } = useAppContext();
+  const [showComments, setShowComment] = useState(false);
   const { title, excerpt, author, content, tags } = post;
   const [pageTitle, setPageTitle] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
-    setPageTitle(`${ post.title } | WP Logged`)
+    setPageTitle(`${ post.title } | WP Logged`);
   }, [post]);
 
   return <SinglePostContainer>
@@ -159,6 +202,24 @@ export default function SinglePost({ post }) {
           </div>
         </PostInnerContainer>
       </article>
+      
+      {
+        ! showComments && 
+        <div className="button-show-comment-wrap">
+          <button class="btn-line-style" onClick={ e => setShowComment(true) }>Comment 👋</button>
+        </div>
+      }
+
+      {
+        showComments &&
+        <FacebookProvider appId={ "1084407792281553" }>
+          <CommentsFB>
+            <h4 className="comments__title">Comments</h4>
+            <Comments href={ `${ process.env.NEXT_SITE_DOMAIN }/posts/${ router.query.slug }` } width="100%" />
+          </CommentsFB>
+        </FacebookProvider>
+      }
+      
     </SinglePostTemplate>
   </SinglePostContainer>
 }

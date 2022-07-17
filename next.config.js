@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ['media.graphassets.com', 'images.unsplash.com'],
   },
+  env: {
+    NEXT_SITE_DOMAIN: process.env.NEXT_SITE_DOMAIN
+  }
 }
 
 module.exports = nextConfig
