@@ -133,6 +133,7 @@ const CommentsFB = styled.div`
   .comments__title {
     border-bottom: solid 1px #eee;
     padding-bottom: 1em;
+    margin: 0 8px 1em;
   }
 `;
 
@@ -212,7 +213,7 @@ export default function SinglePost({ post }) {
 
       {
         showComments &&
-        <FacebookProvider appId={ "1084407792281553" }>
+        <FacebookProvider appId={ process.env.NEXT_FB_APP_ID }>
           <CommentsFB>
             <h4 className="comments__title">Comments</h4>
             <Comments href={ `${ process.env.NEXT_SITE_DOMAIN }/posts/${ router.query.slug }` } width="100%" />
