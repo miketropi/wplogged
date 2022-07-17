@@ -153,6 +153,9 @@ export default function SinglePost({ post }) {
       <title>{ pageTitle }</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta property="og:title" content={ title } key="title" />
+      <meta property="og:type" content="article" />
+      <meta property="og:description" content={ excerpt } />
+      <meta property="og:image" content={ post.coverImage.url } />
     </Head>
 
     <SinglePostTemplate>
