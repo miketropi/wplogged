@@ -206,7 +206,7 @@ export default function SinglePost({ post }) {
       {
         ! showComments && 
         <div className="button-show-comment-wrap">
-          <button class="btn-line-style" onClick={ e => setShowComment(true) }>Comment 👋</button>
+          <button className="btn-line-style" onClick={ e => setShowComment(true) }>Comment 👋</button>
         </div>
       }
 
